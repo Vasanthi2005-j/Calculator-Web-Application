@@ -6,11 +6,23 @@
 
 #**Project Structure**
 📦 Calculator-Web-App
+
+
+
 ├── 📄 index.html (Landing Page)
+
+
 ├── 📄 calculator.html (Calculator UI & Logic)
+
+
 ├── 📄 README.md (This file)
+
+
+
 ├── 📁 assets (For images, styles, and other resources)
+
 │   ├── 📄 styles.css (CSS for UI styling)
+
 │   ├── 📄 script.js (JavaScript for calculator logic)
 
 
