@@ -21,9 +21,9 @@
 
 ├── 📁 assets (For images, styles, and other resources)
 
-│   ├── 📄 styles.css (CSS for UI styling)
+├── 📄 styles.css (CSS for UI styling)
 
-│   ├── 📄 script.js (JavaScript for calculator logic)
+├── 📄 script.js (JavaScript for calculator logic)
 
 
 
