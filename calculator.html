@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("https://wallpapercave.com/wp/ukYlK1Z.jpg");
+        
+      }
+      
+      .calculator {
+        width: 450px;
+        background:linear-gradient(135deg, rgba(255,255,255,0.1),rgba(255,255,255,0));
+        backdrop-filter: blur(10px0);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border:1px solid rgba(255,255,255,0.18);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+        overflow: hidden;
+      }
+      
+      .display {
+        background-color: #f1f3f4;
+        padding: 10px;
+        text-align: right;
+        border-bottom: 2px solid #ddd;
+      }
+      
+      .display input {
+        width: 100%;
+        font-size: 1.5em;
+        padding: 10px;
+        border: none;
+        outline: none;
+        text-align: right;
+        background-color: #f1f3f4;
+      }
+      
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5px;
+        padding: 10px;
+      }
+      
+      button {
+        font-size: 1.2em;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      button:hover {
+        background-color: #e0e0e0;
+      }
+      
+      button:nth-child(4n) {
+        background-color: #f8d7da;
+      }
+      
+      button:last-child {
+        background-color: #51f542;
+        color: #0f0e0e;
+      }
+      
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <input type="text" id="result" disabled>
+    </div>
+    <div class="buttons">
+      <button onclick="clearResult()">AC</button>
+      <button onclick="deleteDigit()">DEL</button>
+      <button onclick="insert('%')">%</button>
+      <button onclick="insert('/')">÷</button>
+      <button onclick="insert('7')">7</button>
+      <button onclick="insert('8')">8</button>
+      <button onclick="insert('9')">9</button>
+      <button onclick="insert('*')">×</button>
+      <button onclick="insert('4')">4</button>
+      <button onclick="insert('5')">5</button>
+      <button onclick="insert('6')">6</button>
+      <button onclick="insert('-')">−</button>
+      <button onclick="insert('1')">1</button>
+      <button onclick="insert('2')">2</button>
+      <button onclick="insert('3')">3</button>
+      <button onclick="insert('+')">+</button>
+      <button onclick="insert('+/-')">+/-</button>
+      <button onclick="insert('0')">0</button>
+      <button onclick="insert('.')">.</button>
+      <button onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script>
+    function insert(value) {
+        const result = document.getElementById('result');
+        if (value === '+/-') {
+          result.value = parseFloat(result.value || '0') * -1;
+        } else {
+          result.value += value;
+        }
+      }
+      
+      function clearResult() {
+        document.getElementById('result').value = '';
+      }
+      
+      function deleteDigit() {
+        const result = document.getElementById('result');
+        result.value = result.value.slice(0, -1);
+      }
+      
+      function calculate() {
+        try {
+          const result = document.getElementById('result');
+          result.value = eval(result.value.replace('×', '*').replace('÷', '/'));
+        } catch (error) {
+          alert('Invalid Expression');
+        }
+      }
+  </script>
+</body>
+</html>
